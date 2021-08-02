@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mycompany.mypet.mappers.register.registerMapper">
+
+	<insert id="create"> INSERT INTO tb_register
+		( register_no
+		, title
+		,content
+		, writer , regdate , viewcnt ) VALUES ( #{register_no} ,
+		#{title} ,
+		#{content} , #{writer} , #{regDate} , #{viewCnt} )
+
+	</insert>
+
+	<select id="read" resultMap="RegisterResultMap"> SELECT register_no , title , content
+		, writer , regdate , viewcnt FROM tb_register WHERE register_no =
+		#{register_no}
+
+	</select>
+
+
+	<update id="update"> UPDATE tb_register SET title = #{title} , content = #{content} WHERE register_no = #{register_no}
+
+	</update>
+
+	<delete id="delete"> 
+	    DELETE FROM tb_register WHERE register_no =#{register_no}
+	</delete>
+
+	<select id="listAll" resultType="RegisterVO"> 
+	<![CDATA[ SELECT register_no, title, content, writer, regdate, viewcnt FROM tb_register WHERE register_no > 0 ORDER BY register_no DESC, regdate DESC ]]>
+	
+	
+	</select>
+
+
+	<resultMap id="RegisterResultMap" type="RegisterVO">
+		<id property="register_no" column="register_no" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="writer" column="writer" />
+		<result property="regDate" column="regdate" />
+		<result property="viewCnt" column="viewcnt" />
+	</resultMap>
+
+	
+
+
+
+
+
+
+
+
+</mapper>
