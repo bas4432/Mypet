@@ -20,10 +20,31 @@
 <link rel="stylesheet" href="/resources/dist/css/adminlte.min.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+<script type="text/javascript">
+
+
+function check(){
+	var title = document.getElementById("title").value;
+	var content =  document.getElementById("content").value;
+	
+
+	if(title == ""){
+		alert("제목을 입력해주세요");
+		return false;
+	}
+	if(content == ""){
+		alert("내용을 입력해주세요");
+		return false;
+	}
+}
+
+
+
+</script>
 </head>
 <body>
 	<div class="col-lg-12">
-		<form role="form" id="writeForm" method="post" action="${path}/register/write">
+		<form role="form" id="writeForm" method="post" action="${path}/register/write" onsubmit="return check()">
 			<div class="card">
 				<div class="card-header with-border">
 					<h3 class="card-title">게시글 작성</h3>

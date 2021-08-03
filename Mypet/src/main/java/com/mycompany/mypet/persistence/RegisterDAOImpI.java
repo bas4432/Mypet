@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.mycompany.mypet.common.paging.Criteria;
 import com.mycompany.mypet.domain.RegisterVO;
 
 @Repository
@@ -46,4 +47,25 @@ public class RegisterDAOImpI implements RegisterDAO {
 		return sqlSession.selectList(NAMESPACE + ".listAll");
 	}
 
+	@Override
+	public List<RegisterVO> listCriteria(Criteria criteria) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NAMESPACE + ".listCriteria", criteria);
+
+		
+	}
+
+
+
+	/*
+	 * @Override public List<RegisterVO> listPaging(int page) throws Exception { //
+	 * TODO Auto-generated method stub if(page<=0) { page= 1; }
+	 * 
+	 * page = (page-1)* 10;
+	 * 
+	 * return sqlSession.selectList(NAMESPACE+ ".listPaging" , page); }
+	 */
+	
+	
+	
 }

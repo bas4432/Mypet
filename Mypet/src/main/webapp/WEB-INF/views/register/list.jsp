@@ -36,6 +36,13 @@
 	}
 
 	
+	
+	function writes(){
+		location.href = "/register/write";
+		
+	}
+	
+
 </script>
 </head>
 
@@ -70,8 +77,7 @@
 			</div>
 			<div class="card-footer">
 				<div class="float-right">
-					<button type="button" class="btn btn-success btn-flat"
-						id="writeBtn">
+					<button type="button" class="btn btn-success btn-flat" id="writeBtn" onclick="javascript:writes();" >
 						<i class="fa fa-pencil"></i> 글쓰기
 					</button>
 				</div>
